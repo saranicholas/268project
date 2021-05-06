@@ -1,7 +1,7 @@
 import csv
 import numpy as np
 from decimal import Decimal
-#
+
 FLIGHTS_CSV = 'data/flight_data.csv'
 AIRPORTS_CSV = 'data/airports.csv'
 BETA_CSV = 'data/intl_ranks.csv'
