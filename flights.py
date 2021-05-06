@@ -139,12 +139,3 @@ if __name__ == "__main__":
     ranks = compute_ranks(coeff_matrix, beta)
 
     write_output(airports, ranks)
-    # print(airports)
-    # print(airport_to_index)
-    # print(routes)
-    # print(out_degrees)
-    # print(in_degrees)
-    # print(degree_normalization)
-    # print(coeff_matrix)
-    # print(beta)
-    print(ranks)
