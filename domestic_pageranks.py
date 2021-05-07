@@ -2,10 +2,10 @@ import csv
 import numpy as np
 from decimal import Decimal
 
-FLIGHTS_CSV = 'data/flight_data.csv'
-AIRPORTS_CSV = 'data/airports.csv'
-BETA_CSV = 'data/intl_ranks.csv'
-RANKS_CSV_OUT = 'data/domestic_ranks.csv'
+FLIGHTS_CSV = 'data/in/domestic_flights.csv'
+AIRPORTS_CSV = 'data/in/airports.csv'
+BETA_CSV = 'data/out/intl_arrivals_by_airport.csv'
+RANKS_CSV_OUT = 'data/out/airport_pageranks.csv'
 
 
 # FLIGHTS_CSV = 'data/example/network.csv'
@@ -14,36 +14,28 @@ RANKS_CSV_OUT = 'data/domestic_ranks.csv'
 # RANKS_CSV_OUT = 'data/example/network_out.csv'
 
 def get_airports_from_csv():
-    print("Extracting airport list...")
     airports = []
     with open(AIRPORTS_CSV, encoding='utf-8-sig') as csvfile:
         reader = csv.DictReader(csvfile)
         for row in reader:
             airports.append(row['AIRPORT'])
-    print("Airport list extraction complete")
     return airports
 
 def get_airports_dict(airports):
-    print("Creating airport dictionary...")
     airport_to_index = dict()
     for i in range(len(airports)):
         airport_to_index[airports[i]] = i
-    print("Airport dictionary creation complete")
     return airport_to_index
 
 def get_routes_from_csv():
-    print("Extracting routes...")
     routes = dict()
     with open(FLIGHTS_CSV, encoding='utf-8-sig') as csvfile:
             reader = csv.DictReader(csvfile)
             for row in reader:
-                # print(row)
                 routes[row['ROUTE']] = int(row['PASSENGERS'])
-    print("Route extraction complete")
     return routes
 
-def get_out_degrees_from_csv(airports):
-    print("Calculating out-degrees...")
+def get_out_degrees_from_csv(airports, airport_to_index):
     out_degrees = [0] * len(airports)
     with open(FLIGHTS_CSV, encoding='utf-8-sig') as csvfile:
             reader = csv.DictReader(csvfile)
@@ -51,11 +43,9 @@ def get_out_degrees_from_csv(airports):
                 if row['ORIGIN_CITY'] in airport_to_index.keys():
                     airport_index = airport_to_index[row['ORIGIN_CITY']]
                     out_degrees[airport_index] += int(row['PASSENGERS'])
-    print("Out-degree calculation complete")
     return out_degrees
 
-def get_in_degrees_from_csv(airports):
-    print("Calculating in-degrees...")
+def get_in_degrees_from_csv(airports, airport_to_index):
     in_degrees = [0] * len(airports)
     with open(FLIGHTS_CSV, encoding='utf-8-sig') as csvfile:
             reader = csv.DictReader(csvfile)
@@ -63,11 +53,9 @@ def get_in_degrees_from_csv(airports):
                 if row['DEST_CITY'] in airport_to_index.keys():
                     airport_index = airport_to_index[row['DEST_CITY']]
                     in_degrees[airport_index] += int(row['PASSENGERS'])
-    print("In-degree calculation complete")
     return in_degrees
 
 def get_degree_normalization(out_degrees, in_degrees):
-    print("Calculating degree normalizations...")
     n = len(out_degrees)
     degree_normalization = [0] * n
     for i in range(n):
@@ -76,11 +64,9 @@ def get_degree_normalization(out_degrees, in_degrees):
         else:
             degree_normalization[i] = max(out_degrees[i], in_degrees[i])
     return degree_normalization
-    print("Degree normalization calculation complete")
 
 
 def construct_coeff_matrix(routes, airports, degree_normalization):
-    print("Constructing coefficient matrix...")
     n = len(airports)
     g = np.zeros((n,n))
     for i in range(n):
@@ -90,52 +76,60 @@ def construct_coeff_matrix(routes, airports, degree_normalization):
                 g[i,j] = 1.0
             elif current_route in routes:
                 g[i,j] = -1.0 * routes[current_route] / degree_normalization[j]
-    print("Coefficient matrix construction complete")
     return g
 
-def get_beta_from_csv(airport_to_index):
-    print("Extracting beta vector...")
+def get_beta_from_csv(airport_to_index, beta_type):
     n = len(airport_to_index)
     beta = np.zeros(n)
     with open(BETA_CSV, encoding='utf-8-sig') as csvfile:
             reader = csv.DictReader(csvfile)
             for row in reader:
                 if row['AIRPORT'] in airport_to_index.keys():
-                    beta[airport_to_index[row['AIRPORT']]] = Decimal(row['BETA'])
-    print("Beta vector extraction complete")
+                    beta[airport_to_index[row['AIRPORT']]] = Decimal(row[beta_type])
     return beta
 
 def compute_ranks(coeff_matrix, beta):
-    print("Computing ranks...")
     ranks = np.linalg.solve(coeff_matrix, beta)
     return ranks
-    print("Rank computation complete")
 
 
-def write_output(airports, ranks):
-    print("Writing output...")
+def write_output(airports, ranks_normalized, ranks_china, ranks_italy, ranks_combined):
     with open(RANKS_CSV_OUT, 'w') as csvfile:
-        fieldnames = ['AIRPORT', 'DOMESTIC_RANK']
+        fieldnames = ['AIRPORT', 'RANK_NORMALIZED', 'RANK_CHINA', 'RANK_ITALY', 'RANK_COMBINED']
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
         writer.writeheader()
         for i in range(len(airports)):
-            writer.writerow({'AIRPORT': airports[i], 'DOMESTIC_RANK': ranks[i]})
-    print("Writing complete")
+            writer.writerow({'AIRPORT': airports[i],
+                            'RANK_NORMALIZED': ranks_normalized[i],
+                            'RANK_CHINA': ranks_china[i],
+                            'RANK_ITALY': ranks_italy[i],
+                            'RANK_COMBINED': ranks_combined[i]})
 
-if __name__ == "__main__":
+
+def compute_ranks_by_type(airport_to_index, coeff_matrix, beta_type):
+    beta = get_beta_from_csv(airport_to_index, beta_type)
+    ranks = compute_ranks(coeff_matrix, beta)
+    return ranks
+
+
+
+
+
+def domestic_pageranks_main():
+    print("Computing airport page ranks...")
     airports = get_airports_from_csv()
     airport_to_index = get_airports_dict(airports)
-
     routes = get_routes_from_csv()
 
-    out_degrees = get_out_degrees_from_csv(airports)
-    in_degrees = get_in_degrees_from_csv(airports)
+    out_degrees = get_out_degrees_from_csv(airports, airport_to_index)
+    in_degrees = get_in_degrees_from_csv(airports, airport_to_index)
     degree_normalization = get_degree_normalization(out_degrees, in_degrees)
-
     coeff_matrix = construct_coeff_matrix(routes, airports, degree_normalization)
-    print(coeff_matrix)
-    beta = get_beta_from_csv(airport_to_index)
 
-    ranks = compute_ranks(coeff_matrix, beta)
+    ranks_normalized = compute_ranks_by_type(airport_to_index, coeff_matrix, 'BETA_NORMALIZED')
+    ranks_china = compute_ranks_by_type(airport_to_index, coeff_matrix, 'BETA_CHINA')
+    ranks_italy = compute_ranks_by_type(airport_to_index, coeff_matrix, 'BETA_ITALY')
+    ranks_combined = compute_ranks_by_type(airport_to_index, coeff_matrix, 'BETA_COMBINED')
 
-    write_output(airports, ranks)
+    write_output(airports, ranks_normalized, ranks_china, ranks_italy, ranks_combined)
+    print("Airport page rank computation complete")

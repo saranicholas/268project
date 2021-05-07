@@ -1,0 +1,51 @@
+STATE,STATE_ABBREVIATION,PASSENGERS_FROM_CHINA,PASSENGERS_FROM_ITALY,PASSENGERS_COMBINED
+Alabama,AL,0,0,0
+Alaska,AK,1121,0,1121
+Arizona,AZ,0,10,10
+Arkansas,AR,0,0,0
+California,CA,1132533,50429,1182962
+Colorado,CO,0,0,0
+Connecticut,CT,0,0,0
+Delaware,DE,0,0,0
+Florida,FL,1141,131917,133058
+Georgia,GA,1731,129016,130747
+Hawaii,HI,98297,0,98297
+Idaho,ID,0,0,0
+Illinois,IL,372749,90521,463270
+Indiana,IN,0,0,0
+Iowa,IA,0,0,0
+Kansas,KS,0,0,0
+Kentucky,KY,0,0,0
+Louisiana,LA,0,0,0
+Maine,ME,0,172,172
+Maryland,MD,0,7,7
+Massachusetts,MA,76235,59894,136129
+Michigan,MI,162542,39581,202123
+Minnesota,MN,4427,0,4427
+Mississippi,MS,0,0,0
+Missouri,MO,0,0,0
+Montana,MT,0,0,0
+Nebraska,NE,0,0,0
+Nevada,NV,4052,77,4129
+New Hampshire,NH,0,0,0
+New Jersey,NJ,168978,141683,310661
+New Mexico,NM,0,0,0
+New York,NY,348712,713093,1061805
+North Carolina,NC,123,46633,46756
+North Dakota,ND,0,0,0
+Ohio,OH,0,0,0
+Oklahoma,OK,0,0,0
+Oregon,OR,0,0,0
+Pennsylvania,PA,0,123947,123947
+Rhode Island,RI,0,0,0
+South Carolina,SC,0,0,0
+South Dakota,SD,0,0,0
+Tennessee,TN,0,13,13
+Texas,TX,182428,1458,183886
+Utah,UT,1188,1047,2235
+Vermont,VT,0,0,0
+Virginia,VA,0,0,0
+Washington,WA,201363,399,201762
+West Virginia,WV,0,0,0
+Wisconsin,WI,0,0,0
+Wyoming,WY,0,0,0

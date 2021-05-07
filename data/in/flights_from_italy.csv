@@ -1,0 +1,56 @@
+﻿ PASSENGERS_RAW , Passenger Miles ,ORIGIN_CITY_NAME-DEST_CITY_NAME,ROUTE,ORIGIN_CITY,DEST_CITY,PASSENGERS,DEST_STATE
+" 322,735 "," 1,289,326,325 ","Milan, Italy-New York, NY Total","Milan, Italy-New York, NY","Milan, Italy","New York, NY",322735,NY
+" 306,054 "," 1,309,299,012 ","Rome, Italy-New York, NY Total","Rome, Italy-New York, NY","Rome, Italy","New York, NY",306054,NY
+" 94,684 "," 476,828,624 ","Rome, Italy-Atlanta, GA Total","Rome, Italy-Atlanta, GA","Rome, Italy","Atlanta, GA",94684,GA
+" 90,098 "," 434,542,654 ","Rome, Italy-Chicago, IL Total","Rome, Italy-Chicago, IL","Rome, Italy","Chicago, IL",90098,IL
+" 77,592 "," 402,392,112 ","Rome, Italy-Miami, FL Total","Rome, Italy-Miami, FL","Rome, Italy","Miami, FL",77592,FL
+" 76,433 "," 306,496,330 ","Milan, Italy-Newark, NJ Total","Milan, Italy-Newark, NJ","Milan, Italy","Newark, NJ",76433,NJ
+" 74,282 "," 324,686,622 ","Rome, Italy-Philadelphia, PA Total","Rome, Italy-Philadelphia, PA","Rome, Italy","Philadelphia, PA",74282,PA
+" 58,422 "," 239,121,246 ","Rome, Italy-Boston, MA Total","Rome, Italy-Boston, MA","Rome, Italy","Boston, MA",58422,MA
+" 54,308 "," 267,738,440 ","Milan, Italy-Miami, FL Total","Milan, Italy-Miami, FL","Milan, Italy","Miami, FL",54308,FL
+" 49,665 "," 210,976,920 ","Venice, Italy-Philadelphia, PA Total","Venice, Italy-Philadelphia, PA","Venice, Italy","Philadelphia, PA",49665,PA
+" 47,500 "," 301,815,000 ","Rome, Italy-Los Angeles, CA Total","Rome, Italy-Los Angeles, CA","Rome, Italy","Los Angeles, CA",47500,CA
+" 46,633 "," 224,444,629 ","Rome, Italy-Charlotte, NC Total","Rome, Italy-Charlotte, NC","Rome, Italy","Charlotte, NC",46633,NC
+" 46,272 "," 192,239,326 ","Venice, Italy-New York, NY Total","Venice, Italy-New York, NY","Venice, Italy","New York, NY",46272,NY
+" 44,110 "," 189,364,230 ","Rome, Italy-Newark, NJ Total","Rome, Italy-Newark, NJ","Rome, Italy","Newark, NJ",44110,NJ
+" 41,826 "," 188,426,130 ","Rome, Italy-Washington, DC Total","Rome, Italy-Washington, DC","Rome, Italy","Washington, DC",41826,DC
+" 39,581 "," 183,141,287 ","Rome, Italy-Detroit, MI Total","Rome, Italy-Detroit, MI","Rome, Italy","Detroit, MI",39581,MI
+" 21,071 "," 87,844,999 ","Venice, Italy-Newark, NJ Total","Venice, Italy-Newark, NJ","Venice, Italy","Newark, NJ",21071,NJ
+" 19,705 "," 86,721,705 ","Naples, Italy-New York, NY Total","Naples, Italy-New York, NY","Naples, Italy","New York, NY",19705,NY
+" 19,418 "," 95,420,052 ","Venice, Italy-Atlanta, GA Total","Venice, Italy-Atlanta, GA","Venice, Italy","Atlanta, GA",19418,GA
+" 14,914 "," 70,916,070 ","Milan, Italy-Atlanta, GA Total","Milan, Italy-Atlanta, GA","Milan, Italy","Atlanta, GA",14914,GA
+" 9,472 "," 42,121,984 ","Palermo, Italy-New York, NY Total","Palermo, Italy-New York, NY","Palermo, Italy","New York, NY",9472,NY
+" 8,850 "," 36,559,350 ","Pisa, Italy-New York, NY Total","Pisa, Italy-New York, NY","Pisa, Italy","New York, NY",8850,NY
+" 2,687 "," 16,831,368 ","Rome, Italy-San Francisco, CA Total","Rome, Italy-San Francisco, CA","Rome, Italy","San Francisco, CA",2687,CA
+" 1,452 "," 7,720,284 ","Milan, Italy-Dallas/Fort Worth, TX Total","Milan, Italy-Dallas/Fort Worth, TX","Milan, Italy","Dallas/Fort Worth, TX",1452,TX
+" 1,047 "," 6,035,955 ","Rome, Italy-Salt Lake City, UT Total","Rome, Italy-Salt Lake City, UT","Rome, Italy","Salt Lake City, UT",1047,UT
+ 781 ," 2,975,610 ","Milan, Italy-Boston, MA Total","Milan, Italy-Boston, MA","Milan, Italy","Boston, MA",781,MA
+ 686 ," 2,722,048 ","Venice, Italy-Boston, MA Total","Venice, Italy-Boston, MA","Venice, Italy","Boston, MA",686,MA
+ 423 ," 1,913,252 ","Milan, Italy-Chicago, IL Total","Milan, Italy-Chicago, IL","Milan, Italy","Chicago, IL",423,IL
+ 399 ," 2,143,029 ","Milan, Italy-Seattle, WA Total","Milan, Italy-Seattle, WA","Milan, Italy","Seattle, WA",399,WA
+ 179 ," 1,081,116 ","Milan, Italy-Los Angeles, CA Total","Milan, Italy-Los Angeles, CA","Milan, Italy","Los Angeles, CA",179,CA
+ 166 ," 697,864 ","Sigonella, Italy-Bangor, ME Total","Sigonella, Italy-Bangor, ME","Sigonella, Italy","Bangor, ME",166,ME
+ 77 ," 447,524 ","Milan, Italy-Las Vegas, NV Total","Milan, Italy-Las Vegas, NV","Milan, Italy","Las Vegas, NV",77,NV
+ 45 ," 184,950 ","Verona, Italy-Newark, NJ Total","Verona, Italy-Newark, NJ","Verona, Italy","Newark, NJ",45,NJ
+ 33 ," 209,616 ","Rome, Italy-Santa Ana, CA Total","Rome, Italy-Santa Ana, CA","Rome, Italy","Santa Ana, CA",33,CA
+ 21 ," 89,292 ","Milan, Italy-Washington, DC Total","Milan, Italy-Washington, DC","Milan, Italy","Washington, DC",21,DC
+ 15 ," 89,205 ","Milan, Italy-San Francisco, CA Total","Milan, Italy-San Francisco, CA","Milan, Italy","San Francisco, CA",15,CA
+ 13 ," 65,338 ","Rome, Italy-Nashville, TN Total","Rome, Italy-Nashville, TN","Rome, Italy","Nashville, TN",13,TN
+ 12 ," 48,138 ","Milan, Italy-Teterboro, NJ Total","Milan, Italy-Teterboro, NJ","Milan, Italy","Teterboro, NJ",12,NJ
+ 10 ," 64,570 ","Naples, Italy-Van Nuys, CA Total","Naples, Italy-Van Nuys, CA","Naples, Italy","Van Nuys, CA",10,CA
+ 10 ," 51,840 ","Rome, Italy-Fort Lauderdale, FL Total","Rome, Italy-Fort Lauderdale, FL","Rome, Italy","Fort Lauderdale, FL",10,FL
+ 8 ," 49,404 ","Rome, Italy-Phoenix, AZ Total","Rome, Italy-Phoenix, AZ","Rome, Italy","Phoenix, AZ",8,AZ
+ 7 ," 30,842 ","Cagliari, Italy-Baltimore, MD Total","Cagliari, Italy-Baltimore, MD","Cagliari, Italy","Baltimore, MD",7,MD
+ 7 ," 37,121 ","Naples, Italy-Miami, FL Total","Naples, Italy-Miami, FL","Naples, Italy","Miami, FL",7,FL
+ 6 ," 24,948 ","Venice, Italy-Teterboro, NJ Total","Venice, Italy-Teterboro, NJ","Venice, Italy","Teterboro, NJ",6,NJ
+ 5 ," 26,705 ","Milan, Italy-Dallas, TX Total","Milan, Italy-Dallas, TX","Milan, Italy","Dallas, TX",5,TX
+ 5 ," 30,475 ","Milan, Italy-San Diego, CA Total","Milan, Italy-San Diego, CA","Milan, Italy","San Diego, CA",5,CA
+ 5 ," 20,015 ","Olbia, Italy-Boston, MA Total","Olbia, Italy-Boston, MA","Olbia, Italy","Boston, MA",5,MA
+ 5 ," 22,265 ","Palermo, Italy-Teterboro, NJ Total","Palermo, Italy-Teterboro, NJ","Palermo, Italy","Teterboro, NJ",5,NJ
+ 4 ," 15,140 ","Venice, Italy-Bangor, ME Total","Venice, Italy-Bangor, ME","Venice, Italy","Bangor, ME",4,ME
+ 3 ," 11,943 ","Genoa, Italy-Westhampton, NY Total","Genoa, Italy-Westhampton, NY","Genoa, Italy","Westhampton, NY",3,NY
+ 2 ," 7,830 ","Rome, Italy-Bangor, ME Total","Rome, Italy-Bangor, ME","Rome, Italy","Bangor, ME",2,ME
+ 2 ," 8,546 ","Rome, Italy-East Farmingdale, NY Total","Rome, Italy-East Farmingdale, NY","Rome, Italy","East Farmingdale, NY",2,NY
+ 2 ," 11,938 ","Venice, Italy-Phoenix, AZ Total","Venice, Italy-Phoenix, AZ","Venice, Italy","Phoenix, AZ",2,AZ
+ 1 ," 4,406 ","Naples, Italy-Teterboro, NJ Total","Naples, Italy-Teterboro, NJ","Naples, Italy","Teterboro, NJ",1,NJ
+ 1 ," 5,561 ","Venice, Italy-Houston, TX Total","Venice, Italy-Houston, TX","Venice, Italy","Houston, TX",1,TX
