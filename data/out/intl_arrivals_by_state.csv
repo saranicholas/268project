@@ -1,51 +1,51 @@
-STATE,STATE_ABBREVIATION,PASSENGERS_FROM_ITALY
-Alabama,AL,0
-Alaska,AK,0
-Arizona,AZ,10
-Arkansas,AR,0
-California,CA,50429
-Colorado,CO,0
-Connecticut,CT,0
-Delaware,DE,0
-Florida,FL,131917
-Georgia,GA,129016
-Hawaii,HI,0
-Idaho,ID,0
-Illinois,IL,90521
-Indiana,IN,0
-Iowa,IA,0
-Kansas,KS,0
-Kentucky,KY,0
-Louisiana,LA,0
-Maine,ME,172
-Maryland,MD,7
-Massachusetts,MA,59894
-Michigan,MI,39581
-Minnesota,MN,0
-Mississippi,MS,0
-Missouri,MO,0
-Montana,MT,0
-Nebraska,NE,0
-Nevada,NV,77
-New Hampshire,NH,0
-New Jersey,NJ,141683
-New Mexico,NM,0
-New York,NY,713093
-North Carolina,NC,46633
-North Dakota,ND,0
-Ohio,OH,0
-Oklahoma,OK,0
-Oregon,OR,0
-Pennsylvania,PA,123947
-Rhode Island,RI,0
-South Carolina,SC,0
-South Dakota,SD,0
-Tennessee,TN,13
-Texas,TX,1458
-Utah,UT,1047
-Vermont,VT,0
-Virginia,VA,0
-Washington,WA,399
-West Virginia,WV,0
-Wisconsin,WI,0
-Wyoming,WY,0
+STATE,STATE_ABBREVIATION,PASSENGERS_FROM_ITALY,PASSENGERS_FROM_ITALY_SCALED
+Alabama,AL,0,0.0
+Alaska,AK,0,0.0
+Arizona,AZ,10,1.4023416300538639e-05
+Arkansas,AR,0,0.0
+California,CA,50429,0.07071868606198631
+Colorado,CO,0,0.0
+Connecticut,CT,0,0.0
+Delaware,DE,0,0.0
+Florida,FL,131917,0.18499270081181557
+Georgia,GA,129016,0.18092450774302932
+Hawaii,HI,0,0.0
+Idaho,ID,0,0.0
+Illinois,IL,90521,0.12694136669410583
+Indiana,IN,0,0.0
+Iowa,IA,0,0.0
+Kansas,KS,0,0.0
+Kentucky,KY,0,0.0
+Louisiana,LA,0,0.0
+Maine,ME,172,0.0002412027603692646
+Maryland,MD,7,9.816391410377048e-06
+Massachusetts,MA,59894,0.08399184959044613
+Michigan,MI,39581,0.05550608405916199
+Minnesota,MN,0,0.0
+Mississippi,MS,0,0.0
+Missouri,MO,0,0.0
+Montana,MT,0,0.0
+Nebraska,NE,0,0.0
+Nevada,NV,77,0.00010798030551414753
+New Hampshire,NH,0,0.0
+New Jersey,NJ,141683,0.1986879691709216
+New Mexico,NM,0,0.0
+New York,NY,713093,1.0
+North Carolina,NC,46633,0.06539539723430184
+North Dakota,ND,0,0.0
+Ohio,OH,0,0.0
+Oklahoma,OK,0,0.0
+Oregon,OR,0,0.0
+Pennsylvania,PA,123947,0.17381603802028628
+Rhode Island,RI,0,0.0
+South Carolina,SC,0,0.0
+South Dakota,SD,0,0.0
+Tennessee,TN,13,1.823044119070023e-05
+Texas,TX,1458,0.0020446140966185336
+Utah,UT,1047,0.0014682516866663955
+Vermont,VT,0,0.0
+Virginia,VA,0,0.0
+Washington,WA,399,0.0005595343103914917
+West Virginia,WV,0,0.0
+Wisconsin,WI,0,0.0
+Wyoming,WY,0,0.0

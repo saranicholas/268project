@@ -42,15 +42,18 @@ def get_count_by_category(arrivals_csv, category):
 
 
 def write_output_states(states_abbreviations, states_count_italy):
+    max_italy = max(states_count_italy.values())
     with open(STATES_CSV_OUT, 'w') as csvfile:
-        fieldnames = ['STATE', 'STATE_ABBREVIATION', 'PASSENGERS_FROM_ITALY']
+        fieldnames = ['STATE', 'STATE_ABBREVIATION', 'PASSENGERS_FROM_ITALY', 'PASSENGERS_FROM_ITALY_SCALED']
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
         writer.writeheader()
         for state in states_abbreviations.keys():
             from_italy = states_count_italy[state] if state in states_count_italy.keys() else 0
+            from_italy_scaled = (1.0 * from_italy) / max_italy
             writer.writerow({'STATE': states_abbreviations[state],
                             'STATE_ABBREVIATION': state,
-                            'PASSENGERS_FROM_ITALY': from_italy})
+                            'PASSENGERS_FROM_ITALY': from_italy,
+                            'PASSENGERS_FROM_ITALY_SCALED': from_italy_scaled})
 
 
 def write_output_airports(airports, airports_count_italy):

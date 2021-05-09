@@ -1,5 +1,4 @@
 import csv
-from decimal import Decimal
 
 
 CITY_RANKS_CSV = 'data/out/airport_pageranks.csv'
@@ -24,9 +23,9 @@ def compute_state_ranks(rank_type):
             airport = row['AIRPORT']
             state = airport[airport.index(",")+2 : ]
             if state in state_ranks.keys():
-                state_ranks[state] += Decimal(row[rank_type])
+                state_ranks[state] += float(row[rank_type])
             else:
-                state_ranks[state] = Decimal(row[rank_type])
+                state_ranks[state] = float(row[rank_type])
     return state_ranks
 
 def write_output(states_abbreviations, state_ranks_normalized, state_ranks_italy):
@@ -39,10 +38,12 @@ def write_output(states_abbreviations, state_ranks_normalized, state_ranks_italy
         for state in states_abbreviations.keys():
             rank_normalized = state_ranks_normalized[state] if state in state_ranks_normalized.keys() else 0
             rank_italy = state_ranks_italy[state] if state in state_ranks_italy.keys() else 0
+            rank_normalized_scaled = (1.0 * rank_normalized) / max_normalized
+            rank_italy_scaled = (1.0 * rank_italy) / max_italy
             writer.writerow({'STATE': states_abbreviations[state],
                             'STATE_ABBREVIATION': state,
-                            'RANK_NORMALIZED': rank_normalized,
-                            'RANK_ITALY': rank_italy})
+                            'RANK_NORMALIZED': rank_normalized_scaled,
+                            'RANK_ITALY': rank_italy_scaled})
 
 
 
