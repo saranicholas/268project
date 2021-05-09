@@ -7,6 +7,12 @@ AIRPORTS_CSV = 'data/in/airports.csv'
 BETA_CSV = 'data/out/intl_arrivals_by_airport.csv'
 RANKS_CSV_OUT = 'data/out/airport_pageranks.csv'
 
+
+# FLIGHTS_CSV = 'data/example/network.csv'
+# AIRPORTS_CSV = 'data/example/nodes.csv'
+# BETA_CSV = 'data/example/beta.csv'
+# RANKS_CSV_OUT = 'data/example/network_out.csv'
+
 def get_airports_from_csv():
     airports = []
     with open(AIRPORTS_CSV, encoding='utf-8-sig') as csvfile:
@@ -87,21 +93,24 @@ def compute_ranks(coeff_matrix, beta):
     return ranks
 
 
-def write_output(airports, ranks_normalized, ranks_italy):
+def write_output(airports, ranks_normalized, ranks_china, ranks_italy, ranks_combined):
     with open(RANKS_CSV_OUT, 'w') as csvfile:
-        fieldnames = ['AIRPORT', 'RANK_NORMALIZED', 'RANK_ITALY']
+        fieldnames = ['AIRPORT', 'RANK_NORMALIZED', 'RANK_CHINA', 'RANK_ITALY', 'RANK_COMBINED']
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
         writer.writeheader()
         for i in range(len(airports)):
             writer.writerow({'AIRPORT': airports[i],
                             'RANK_NORMALIZED': ranks_normalized[i],
-                            'RANK_ITALY': ranks_italy[i]})
+                            'RANK_CHINA': ranks_china[i],
+                            'RANK_ITALY': ranks_italy[i],
+                            'RANK_COMBINED': ranks_combined[i]})
 
 
 def compute_ranks_by_type(airport_to_index, coeff_matrix, beta_type):
     beta = get_beta_from_csv(airport_to_index, beta_type)
     ranks = compute_ranks(coeff_matrix, beta)
     return ranks
+
 
 
 
@@ -118,7 +127,9 @@ def domestic_pageranks_main():
     coeff_matrix = construct_coeff_matrix(routes, airports, degree_normalization)
 
     ranks_normalized = compute_ranks_by_type(airport_to_index, coeff_matrix, 'BETA_NORMALIZED')
+    ranks_china = compute_ranks_by_type(airport_to_index, coeff_matrix, 'BETA_CHINA')
     ranks_italy = compute_ranks_by_type(airport_to_index, coeff_matrix, 'BETA_ITALY')
+    ranks_combined = compute_ranks_by_type(airport_to_index, coeff_matrix, 'BETA_COMBINED')
 
-    write_output(airports, ranks_normalized, ranks_italy)
+    write_output(airports, ranks_normalized, ranks_china, ranks_italy, ranks_combined)
     print("Airport page rank computation complete")
