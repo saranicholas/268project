@@ -3,6 +3,7 @@ from international_arrivals import international_arrivals_main
 from neighbors_of_hubs import neighbors_of_hubs_main
 from domestic_pageranks import domestic_pageranks_main
 from state_pageranks import state_pageranks_main
+from format_regression_data import format_regression_data_main
 
 
 if __name__ == "__main__":
@@ -16,5 +17,7 @@ if __name__ == "__main__":
 
     domestic_pageranks_main()
     state_pageranks_main()
+
+    format_regression_data_main()
 
     print("Data cleaning and generation complete")
