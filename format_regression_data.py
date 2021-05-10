@@ -1,4 +1,5 @@
 import csv
+from international_arrivals import get_states_abbreviations_from_csv
 
 STATES_ABBREV_CSV = 'data/in/states_abbreviations.csv'
 
@@ -7,17 +8,11 @@ NEIGHBORS_HUBS_CSV = 'data/out/neighbors_hubs.csv'
 STATE_PAGERANKS_CSV = 'data/out/state_pageranks.csv'
 
 CASES_CSV = 'data/out/state_cases.csv'
+TESTING_CSV = 'data/out/state_testing.csv'
 
 REGRESSION_CSV = 'data/regression/regression_data.csv'
 
 
-def get_states_abbreviations_from_csv():
-    abbreviations_to_states = dict()
-    with open(STATES_ABBREV_CSV, encoding='utf-8-sig') as csvfile:
-        reader = csv.DictReader(csvfile)
-        for row in reader:
-            abbreviations_to_states[row['STATE_ABBREVIATION']] = row['STATE']
-    return abbreviations_to_states
 
 def get_dict_from_csv(CSV_IN, category):
     csv_dict = dict()
@@ -28,9 +23,11 @@ def get_dict_from_csv(CSV_IN, category):
     return csv_dict
 
 
-def write_output(states_abbreviations, passengers_from_italy, neighbors_hubs, pageranks_normalized, pageranks_italy, cases_mar17, cases_mar31):
+def write_output(states_abbreviations, passengers_from_italy, neighbors_hubs, pageranks_normalized, pageranks_italy,
+                cases_mar17, cases_mar31, tests_mar17, tests_mar31):
     with open(REGRESSION_CSV, 'w') as csvfile:
-        fieldnames = ['STATE', 'STATE_ABBREVIATION', 'PASSENGERS_FROM_ITALY_SCALED', 'NEIGHBORS_HUBS_ITALY', 'RANK_NORMALIZED', 'RANK_ITALY', 'CASES_MAR_17', 'CASES_MAR_31']
+        fieldnames = ['STATE', 'STATE_ABBREVIATION', 'PASSENGERS_FROM_ITALY_SCALED', 'NEIGHBORS_HUBS_ITALY',
+                     'RANK_NORMALIZED', 'RANK_ITALY', 'CASES_MAR_17', 'CASES_MAR_31', 'TESTS_MAR_17_SCALED', 'TESTS_MAR_31_SCALED']
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
         writer.writeheader()
         for state in states_abbreviations.keys():
@@ -40,6 +37,8 @@ def write_output(states_abbreviations, passengers_from_italy, neighbors_hubs, pa
             rank_italy = pageranks_italy[state] if state in pageranks_italy else 0
             cases_17 = cases_mar17[state] if state in cases_mar17.keys() else 0
             cases_31 = cases_mar31[state] if state in cases_mar31.keys() else 0
+            tests_17 = tests_mar17[state] if state in tests_mar17.keys() else 0
+            tests_31 = tests_mar31[state] if state in tests_mar31.keys() else 0
             writer.writerow({'STATE': states_abbreviations[state],
                             'STATE_ABBREVIATION': state,
                             'PASSENGERS_FROM_ITALY_SCALED': from_italy,
@@ -47,7 +46,9 @@ def write_output(states_abbreviations, passengers_from_italy, neighbors_hubs, pa
                             'RANK_NORMALIZED': rank_normalized,
                             'RANK_ITALY': rank_italy,
                             'CASES_MAR_17': cases_17,
-                            'CASES_MAR_31': cases_31})
+                            'CASES_MAR_31': cases_31,
+                            'TESTS_MAR_17_SCALED': tests_17,
+                            'TESTS_MAR_31_SCALED': tests_31})
 
 def format_regression_data_main():
     states_abbreviations = get_states_abbreviations_from_csv()
@@ -57,6 +58,8 @@ def format_regression_data_main():
     pageranks_italy = get_dict_from_csv(STATE_PAGERANKS_CSV, 'RANK_ITALY')
     cases_mar17 = get_dict_from_csv(CASES_CSV, 'CASES_MAR_17')
     cases_mar31 = get_dict_from_csv(CASES_CSV, 'CASES_MAR_31')
+    tests_mar17 = get_dict_from_csv(TESTING_CSV, 'TESTS_MAR_17_SCALED')
+    tests_mar31 = get_dict_from_csv(TESTING_CSV, 'TESTS_MAR_31_SCALED')
 
-    write_output(states_abbreviations, passengers_from_italy, neighbors_hubs,
-                pageranks_normalized, pageranks_italy, cases_mar17, cases_mar31)
+    write_output(states_abbreviations, passengers_from_italy, neighbors_hubs, pageranks_normalized,
+                pageranks_italy, cases_mar17, cases_mar31, tests_mar17, tests_mar31)

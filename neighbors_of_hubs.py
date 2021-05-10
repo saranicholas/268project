@@ -1,18 +1,11 @@
 import csv
+from international_arrivals import get_states_abbreviations_from_csv
 
 BETA_CSV = 'data/out/intl_arrivals_by_airport.csv'
 STATES_ABBREV_CSV = 'data/in/states_abbreviations.csv'
 FLIGHTS_CSV = 'data/in/domestic_flights.csv'
 
 NEIGHBORS_HUBS_CSV_OUT = 'data/out/neighbors_hubs.csv'
-
-def get_states_abbreviations_from_csv():
-    abbreviations_to_states = dict()
-    with open(STATES_ABBREV_CSV, encoding='utf-8-sig') as csvfile:
-        reader = csv.DictReader(csvfile)
-        for row in reader:
-            abbreviations_to_states[row['STATE_ABBREVIATION']] = row['STATE']
-    return abbreviations_to_states
 
 def get_beta_dict_from_csv():
     beta_dict = dict()

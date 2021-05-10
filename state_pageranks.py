@@ -1,4 +1,5 @@
 import csv
+from international_arrivals import get_states_abbreviations_from_csv
 
 
 CITY_RANKS_CSV = 'data/out/airport_pageranks.csv'
@@ -6,14 +7,6 @@ STATES_ABBREV_CSV = 'data/in/states_abbreviations.csv'
 
 STATE_RANKS_CSV_OUT = 'data/out/state_pageranks.csv'
 
-
-def get_states_abbreviations_from_csv():
-    abbreviations_to_states = dict()
-    with open(STATES_ABBREV_CSV, encoding='utf-8-sig') as csvfile:
-        reader = csv.DictReader(csvfile)
-        for row in reader:
-            abbreviations_to_states[row['STATE_ABBREVIATION']] = row['STATE']
-    return abbreviations_to_states
 
 def compute_state_ranks(rank_type):
     state_ranks = dict()
