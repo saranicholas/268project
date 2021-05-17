@@ -4,7 +4,6 @@ from decimal import Decimal
 
 AIRPORTS_CSV = 'data/in/airports.csv'
 
-# FROM_ITALY_CSV = 'data/in/flights_from_italy.csv'
 STATES_ABBREV_CSV = 'data/in/states_abbreviations.csv'
 INTL_FLIGHTS_CSV = 'data/in/intl_flights.csv'
 
@@ -84,7 +83,6 @@ def international_arrivals_main():
     airports = get_airports_from_csv()
     states_abbreviations = get_states_abbreviations_from_csv()
 
-    # states_count_italy = get_count_by_category(FROM_ITALY_CSV, 'DEST_STATE', {'Italy'})
     airports_count_italy = get_count_by_category(INTL_FLIGHTS_CSV, 'DEST_CITY', {'Italy'})
     states_count_italy = get_count_by_category(INTL_FLIGHTS_CSV, 'DEST_STATE', {'Italy'})
     states_count_europe = get_count_by_category(INTL_FLIGHTS_CSV, 'DEST_STATE', {'France', 'Switzerland', 'Austria', 'Slovenia'})
