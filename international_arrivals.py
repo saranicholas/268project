@@ -46,7 +46,7 @@ def write_output_states(states_abbreviations, states_count_italy, states_count_e
     max_italy = max(states_count_italy.values())
     max_europe = max(states_count_europe.values())
     with open(STATES_CSV_OUT, 'w') as csvfile:
-        fieldnames = ['STATE', 'STATE_ABBREVIATION', 'PASSENGERS_FROM_ITALY', 'PASSENGERS_FROM_ITALY_SCALED', 'PASSENGERS_FROM_ITALY_NEIGHBORS_SCALED']
+        fieldnames = ['STATE', 'STATE_ABBREVIATION', 'PASSENGERS_FROM_ITALY', 'PASSENGERS_FROM_ITALY_SCALED', 'PASSENGERS_FROM_EUROPE_SCALED']
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
         writer.writeheader()
         for state in states_abbreviations.keys():
@@ -58,7 +58,7 @@ def write_output_states(states_abbreviations, states_count_italy, states_count_e
                             'STATE_ABBREVIATION': state,
                             'PASSENGERS_FROM_ITALY': from_italy,
                             'PASSENGERS_FROM_ITALY_SCALED': from_italy_scaled,
-                            'PASSENGERS_FROM_ITALY_NEIGHBORS_SCALED': from_europe_scaled})
+                            'PASSENGERS_FROM_EUROPE_SCALED': from_europe_scaled})
 
 
 def write_output_airports(airports, airports_count_italy):
@@ -85,7 +85,7 @@ def international_arrivals_main():
 
     airports_count_italy = get_count_by_category(INTL_FLIGHTS_CSV, 'DEST_CITY', {'Italy'})
     states_count_italy = get_count_by_category(INTL_FLIGHTS_CSV, 'DEST_STATE', {'Italy'})
-    states_count_europe = get_count_by_category(INTL_FLIGHTS_CSV, 'DEST_STATE', {'France', 'Switzerland', 'Austria', 'Slovenia'})
+    states_count_europe = get_count_by_category(INTL_FLIGHTS_CSV, 'DEST_STATE', {'Italy', 'France', 'Switzerland', 'Austria', 'Slovenia'})
 
     write_output_states(states_abbreviations, states_count_italy, states_count_europe)
     write_output_airports(airports, airports_count_italy)

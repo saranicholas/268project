@@ -26,7 +26,7 @@ def get_dict_from_csv(CSV_IN, category):
 def write_output(states_abbreviations, passengers_from_italy, passengers_from_europe, neighbors_hubs, pageranks_normalized, pageranks_italy,
                 cases_mar17, cases_mar31, tests_mar17, tests_mar31):
     with open(REGRESSION_CSV, 'w') as csvfile:
-        fieldnames = ['STATE', 'STATE_ABBREVIATION', 'PASSENGERS_FROM_ITALY_SCALED', 'PASSENGERS_FROM_ITALY_NEIGHBORS_SCALED', 'NEIGHBORS_HUBS_ITALY',
+        fieldnames = ['STATE', 'STATE_ABBREVIATION', 'PASSENGERS_FROM_ITALY_SCALED', 'PASSENGERS_FROM_EUROPE_SCALED', 'NEIGHBORS_HUBS_ITALY',
                      'RANK_NORMALIZED', 'RANK_ITALY', 'CASES_MAR_17', 'CASES_MAR_31', 'TESTS_MAR_17_SCALED', 'TESTS_MAR_31_SCALED']
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
         writer.writeheader()
@@ -43,7 +43,7 @@ def write_output(states_abbreviations, passengers_from_italy, passengers_from_eu
             writer.writerow({'STATE': states_abbreviations[state],
                             'STATE_ABBREVIATION': state,
                             'PASSENGERS_FROM_ITALY_SCALED': from_italy,
-                            'PASSENGERS_FROM_ITALY_NEIGHBORS_SCALED': from_europe,
+                            'PASSENGERS_FROM_EUROPE_SCALED': from_europe,
                             'NEIGHBORS_HUBS_ITALY': neighbor,
                             'RANK_NORMALIZED': rank_normalized,
                             'RANK_ITALY': rank_italy,
@@ -55,7 +55,7 @@ def write_output(states_abbreviations, passengers_from_italy, passengers_from_eu
 def format_regression_data_main():
     states_abbreviations = get_states_abbreviations_from_csv()
     passengers_from_italy = get_dict_from_csv(INTL_ARRIVALS_CSV, 'PASSENGERS_FROM_ITALY_SCALED')
-    passengers_from_europe = get_dict_from_csv(INTL_ARRIVALS_CSV, 'PASSENGERS_FROM_ITALY_NEIGHBORS_SCALED')
+    passengers_from_europe = get_dict_from_csv(INTL_ARRIVALS_CSV, 'PASSENGERS_FROM_EUROPE_SCALED')
     neighbors_hubs = get_dict_from_csv(NEIGHBORS_HUBS_CSV, 'NEIGHBORS_HUBS_ITALY')
     pageranks_normalized = get_dict_from_csv(STATE_PAGERANKS_CSV, 'RANK_NORMALIZED')
     pageranks_italy = get_dict_from_csv(STATE_PAGERANKS_CSV, 'RANK_ITALY')
